@@ -1,0 +1,86 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+#Removes access to the system folder by users.
+#Additionally this will allow you to create a System.php
+#controller, previously this would not have been possible.
+#'system' can be replaced if you have renamed your system folder.
+RewriteCond %{REQUEST_URI} ^system.*
+RewriteRule ^(.*)$ /index.php?/$1 [L]
+#Checks to see if the user is bboafrica to access a valid file,
+#such as an image or css document, if this isn't true it sends
+#the request to index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /index.php?/$1 [L]
+</IfModule>
+<IfModule !mod_rewrite.c>
+# If we don't have mod_rewrite installed, all 404's
+# can be sent to index.php, and everything works as normal.
+# Submitted by: ElliotHaughin
+ErrorDocument 404 /index.php
+</IfModule>
+
+# ── Security & CSP Headers ─────────────────────────────────────────────────
+<IfModule mod_headers.c>
+
+    # Content-Security-Policy
+    # Allows:
+    #   - Your own scripts (self)
+    #   - Inline scripts (unsafe-inline) – required for CI CSRF tokens & page JS
+    #   - eval (unsafe-eval) – required by some JS libs
+    #   - Cloudflare CDN scripts (cdn-cgi, cdnjs)
+    #   - Google Fonts & jsDelivr (used by portal)
+    #   - YouTube embeds (career videos)
+    #   - Google Maps (venue page)
+    # Report-Only is removed so the policy is ENFORCED, not just logged.
+    Header set Content-Security-Policy "\
+script-src 'self' 'unsafe-inline' 'unsafe-eval' \
+    https://*.cloudflare.com \
+    https://cdn-cgi.cloudflare.com \
+    https://static.cloudflareinsights.com \
+    https://cdn.jsdelivr.net \
+    https://cdnjs.cloudflare.com \
+    https://www.googletagmanager.com \
+    https://www.google-analytics.com \
+    https://maps.googleapis.com; \
+style-src 'self' 'unsafe-inline' \
+    https://fonts.googleapis.com \
+    https://cdn.jsdelivr.net \
+    https://cdnjs.cloudflare.com; \
+font-src 'self' data: \
+    https://fonts.gstatic.com \
+    https://cdn.jsdelivr.net; \
+img-src 'self' data: blob: \
+    https://*.cloudflare.com \
+    https://maps.gstatic.com \
+    https://maps.googleapis.com \
+    https://*.google.com \
+    https://*.googleapis.com; \
+frame-src 'self' \
+    https://www.youtube.com \
+    https://www.google.com \
+    https://maps.google.com; \
+connect-src 'self' \
+    https://*.cloudflare.com \
+    https://cloudflareinsights.com \
+    https://www.google-analytics.com; \
+object-src 'none'; \
+base-uri 'self';"
+
+    # Remove the Report-Only header Cloudflare may inject
+    Header unset Content-Security-Policy-Report-Only
+
+    # Prevent clickjacking
+    Header set X-Frame-Options "SAMEORIGIN"
+
+    # XSS protection
+    Header set X-XSS-Protection "1; mode=block"
+
+    # Prevent MIME sniffing
+    Header set X-Content-Type-Options "nosniff"
+
+    # Referrer policy
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+
+</IfModule>

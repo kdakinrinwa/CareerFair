@@ -1,0 +1,13 @@
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<link href="<?php echo base_url(); ?>assetsp/css/bootstrap.css" rel="stylesheet">
+<link href="<?php echo base_url(); ?>assetsp/css/fa-icons.css" rel="stylesheet">
+<link href="<?php echo base_url(); ?>assetsp/css/sweetalert2.min.css" rel="stylesheet">
+<link href="<?php echo base_url(); ?>assetsp/css/animate.css" rel="stylesheet">
+<link href="<?php echo base_url(); ?>assetsp/css/careerfair.css" rel="stylesheet">
+<link href="<?php echo base_url(); ?>assetsp/css/portal.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;0,9..40,900;1,9..40,400&display=swap" rel="stylesheet">
+<link rel="icon" href="<?php echo base_url(); ?>assetsp/images/logo.png" type="image/png">

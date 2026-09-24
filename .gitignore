@@ -1,0 +1,46 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# FUTA Career Fair Portal – .gitignore
+# ─────────────────────────────────────────────────────────────────────────────
+
+# ── Environment / secrets ────────────────────────────────────────────────────
+application/config/env-database.php
+application/config/env-*.php
+.env
+*.env
+
+
+# ── Application runtime ───────────────────────────────────────────────────────
+application/logs/*.php
+!application/logs/index.html
+application/cache/*
+!application/cache/index.html
+
+# ── OS & Editor files ─────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# ── Node / npm (if any tooling is added later) ────────────────────────────────
+node_modules/
+npm-debug.log*
+yarn-error.log
+
+# ── Composer (if added later) ─────────────────────────────────────────────────
+vendor/
+composer.lock
+
+# ── Design working files / uploaded content ──────────────────────────────────
+workings/
+uploads/
+
+# ── Database exports (keep only the schema, not data dumps) ──────────────────
+docs/*.sql.bak
+docs/*_data.sql
+docs/*_dump.sql

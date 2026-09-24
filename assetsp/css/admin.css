@@ -1,0 +1,122 @@
+/* =============================================================
+   FUTA Career Services – Admin Panel CSS
+   Extends portal.css with admin-specific overrides
+============================================================= */
+
+/* Admin sidebar – deeper dark navy */
+.admin-body { background: #f0f2f5; }
+.portal-sidebar { background: #0f172a; }
+.sidebar-nav a.active { background: rgba(201,168,76,.15); border-left-color: #C9A84C; }
+.sidebar-nav a.active i { color: #C9A84C; }
+.sidebar-nav a:hover { background: rgba(255,255,255,.06); }
+
+/* Sidebar section divider */
+.sidebar-nav-section {
+    padding: 14px 16px 4px;
+    font-size: 9.5px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 1.8px;
+    color: rgba(255,255,255,.28);
+}
+
+/* Admin topbar accent */
+.portal-topbar { border-bottom: 2px solid #f0f0f0; }
+.admin-topbar-brand {
+    font-size: 13px; font-weight: 800; color: #6B0E20;
+    letter-spacing: .3px; text-transform: uppercase;
+}
+
+/* ── Stat card variants ──────────────────────── */
+.a-stat { background:#fff; border-radius:12px; padding:20px 22px; box-shadow:0 2px 14px rgba(0,0,0,.06); display:flex; align-items:center; gap:16px; border-left:4px solid transparent; }
+.a-stat.maroon { border-left-color:#6B0E20; }
+.a-stat.gold   { border-left-color:#C9A84C; }
+.a-stat.green  { border-left-color:#22c55e; }
+.a-stat.blue   { border-left-color:#3b82f6; }
+.a-stat.purple { border-left-color:#8b5cf6; }
+.a-stat.red    { border-left-color:#ef4444; }
+.a-stat.teal   { border-left-color:#14b8a6; }
+.a-stat.orange { border-left-color:#f97316; }
+.a-stat-icon { width:48px; height:48px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:20px; flex-shrink:0; }
+.a-stat-icon.maroon { background:rgba(107,14,32,.1); color:#6B0E20; }
+.a-stat-icon.gold   { background:rgba(201,168,76,.12); color:#a88635; }
+.a-stat-icon.green  { background:rgba(34,197,94,.1);  color:#15803d; }
+.a-stat-icon.blue   { background:rgba(59,130,246,.1); color:#1d4ed8; }
+.a-stat-icon.purple { background:rgba(139,92,246,.1); color:#6d28d9; }
+.a-stat-icon.red    { background:rgba(239,68,68,.1);  color:#dc2626; }
+.a-stat-icon.teal   { background:rgba(20,184,166,.1); color:#0f766e; }
+.a-stat-icon.orange { background:rgba(249,115,22,.1); color:#c2410c; }
+.a-stat-num  { font-size:26px; font-weight:900; color:#1A1A2E; line-height:1; }
+.a-stat-label{ font-size:12.5px; color:#6c757d; font-weight:500; margin-top:3px; }
+
+/* ── Admin data table ────────────────────────── */
+.a-table-wrap { overflow-x: auto; }
+.a-table { width:100%; border-collapse:collapse; }
+.a-table th { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.5px; color:#6c757d; padding:10px 14px; border-bottom:2px solid #f0f0f0; white-space:nowrap; background:#fafafa; text-align:left; }
+.a-table td { padding:12px 14px; border-bottom:1px solid #f5f5f5; font-size:13.5px; color:#1A1A2E; vertical-align:middle; }
+.a-table tr:last-child td { border-bottom:none; }
+.a-table tr:hover td { background:rgba(107,14,32,.02); }
+
+/* ── Status badges ──────────────────────────── */
+.a-badge { display:inline-flex; align-items:center; gap:5px; padding:3px 10px; border-radius:20px; font-size:11px; font-weight:700; }
+.a-badge::before { content:''; width:6px; height:6px; border-radius:50%; flex-shrink:0; }
+.a-badge-active, .a-badge-approved  { background:rgba(34,197,94,.12); color:#15803d; }
+.a-badge-active::before, .a-badge-approved::before { background:#22c55e; }
+.a-badge-pending  { background:rgba(249,115,22,.12); color:#c2410c; }
+.a-badge-pending::before  { background:#f97316; }
+.a-badge-inactive, .a-badge-suspended, .a-badge-revoked { background:rgba(239,68,68,.1); color:#dc2626; }
+.a-badge-inactive::before, .a-badge-suspended::before, .a-badge-revoked::before { background:#ef4444; }
+.a-badge-draft, .a-badge-closed { background:rgba(107,114,128,.1); color:#374151; }
+.a-badge-draft::before { background:#9ca3af; }
+
+/* ── Card ───────────────────────────────────── */
+.a-card { background:#fff; border-radius:12px; box-shadow:0 2px 14px rgba(0,0,0,.06); overflow:hidden; margin-bottom:22px; }
+.a-card-head { padding:16px 22px; border-bottom:1px solid #f0f0f0; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px; }
+.a-card-title { font-size:15px; font-weight:800; color:#1A1A2E; margin:0; }
+.a-card-body  { padding:22px; }
+.a-card-body-flush { padding:0; }
+
+/* ── Mini chart bar ─────────────────────────── */
+.a-bar-chart { display:flex; align-items:flex-end; gap:6px; height:80px; padding-top:8px; }
+.a-bar { flex:1; border-radius:4px 4px 0 0; background:linear-gradient(180deg,#6B0E20,#4a0915); min-width:14px; transition:height .4s ease; }
+.a-bar-label { font-size:10px; text-align:center; color:#6c757d; margin-top:4px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+
+/* ── Filters / search bar ───────────────────── */
+.a-filter-bar { display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:18px; }
+.a-search { display:flex; align-items:center; gap:0; }
+.a-search input { padding:9px 14px; border:1.5px solid #e8e8e8; border-right:none; border-radius:8px 0 0 8px; font-size:13.5px; font-family:'DM Sans',sans-serif; outline:none; min-width:220px; }
+.a-search input:focus { border-color:#6B0E20; }
+.a-search button { padding:9px 16px; background:#6B0E20; color:#fff; border:none; border-radius:0 8px 8px 0; cursor:pointer; font-size:14px; }
+.a-filter-select { padding:9px 14px; border:1.5px solid #e8e8e8; border-radius:8px; font-size:13.5px; font-family:'DM Sans',sans-serif; outline:none; background:#fff; cursor:pointer; }
+.a-filter-select:focus { border-color:#6B0E20; }
+
+/* ── Avatar initials ────────────────────────── */
+.a-avatar { width:36px; height:36px; border-radius:50%; background:#6B0E20; color:#fff; display:inline-flex; align-items:center; justify-content:center; font-size:13px; font-weight:700; flex-shrink:0; }
+.a-avatar.gold { background:#C9A84C; color:#1A1A2E; }
+
+/* ── Action buttons ─────────────────────────── */
+.a-btn { display:inline-flex; align-items:center; gap:6px; padding:7px 14px; border-radius:8px; font-size:12.5px; font-weight:700; cursor:pointer; transition:all .2s; border:none; text-decoration:none; font-family:'DM Sans',sans-serif; }
+.a-btn-maroon { background:#6B0E20; color:#fff; }
+.a-btn-maroon:hover { background:#4a0915; color:#fff; }
+.a-btn-gold   { background:#C9A84C; color:#1A1A2E; }
+.a-btn-gold:hover { background:#a88635; color:#1A1A2E; }
+.a-btn-green  { background:rgba(34,197,94,.12); color:#15803d; }
+.a-btn-green:hover { background:#22c55e; color:#fff; }
+.a-btn-red    { background:rgba(239,68,68,.1); color:#dc2626; }
+.a-btn-red:hover { background:#ef4444; color:#fff; }
+.a-btn-ghost  { background:#f5f5f5; color:#1A1A2E; }
+.a-btn-ghost:hover { background:#e8e8e8; }
+.a-btn-sm     { padding:5px 10px; font-size:11.5px; border-radius:6px; }
+.a-btn-outline { background:transparent; border:1.5px solid #6B0E20; color:#6B0E20; }
+.a-btn-outline:hover { background:#6B0E20; color:#fff; }
+
+/* ── Login page ─────────────────────────────── */
+.admin-login-wrap { min-height:100vh; display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg,#0f172a 0%,#1a1a2e 50%,#4a0915 100%); padding:20px; }
+.admin-login-box { background:#fff; border-radius:16px; padding:40px 36px; width:100%; max-width:420px; box-shadow:0 20px 60px rgba(0,0,0,.4); }
+
+/* ── Notification dot ───────────────────────── */
+.a-notif-dot { width:8px; height:8px; border-radius:50%; background:#ef4444; display:inline-block; margin-left:6px; }
+
+/* ── Responsive ─────────────────────────────── */
+@media(max-width:768px) {
+    .a-filter-bar { flex-direction:column; align-items:stretch; }
+    .a-search input { min-width:100%; }
+}
